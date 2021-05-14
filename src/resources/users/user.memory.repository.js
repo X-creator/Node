@@ -1,3 +1,5 @@
+const { userUnAssign } = require("../tasks/task.service");
+
 let users = [
   {
     "id": "609bdad1fc13ae46fb000000",
@@ -73,6 +75,7 @@ const updateOne = async (data) => {
 };
 const deleteOne = async (id) => {
   users = users.filter(user => user.id !== id);
+  userUnAssign(id);
 };
 
 module.exports = { getAll, getByID, createOne, updateOne, deleteOne };
